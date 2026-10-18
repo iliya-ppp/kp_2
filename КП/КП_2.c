@@ -6,14 +6,14 @@
 #define N 60
 
 /**
- * @brief ¬ычисл€ет преобразованное показание Q(X) дл€ мониторинга реактора
+ * @brief ¬ычисл€ет преобразованное показание Q(X) дл€ мониторинга 
  *
  * @param x ƒавление сырь€ (должно быть в диапазоне от 1.0 до 12.0 бар)
  * @param base_q0 Ѕазовое значение Q0 (44.39)
  * @param result_q ”казатель на переменную, куда будет записан результат Q(X)
  * @return int 0 в случае успеха, -1 в случае ошибки (выход за диапазон)
  */
-int calculate_reactor_metrics(double x, double base_q0, double* result_q) 
+int calculate(double x, double base_q0, double* result_q) 
 {
     setlocale(LC_ALL, "RUS");
     if (x < 1.0 || x > 12.0) 
@@ -67,7 +67,7 @@ int main()
 
         q_output = 0.0;
 
-        int status_code = calculate_reactor_metrics(x_input, base_q0, &q_output);
+        int status_code = calculate(x_input, base_q0, &q_output);
 
         if (status_code == -1) 
         {
